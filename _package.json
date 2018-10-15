@@ -1,0 +1,9 @@
+{
+  "name": "global.cli",
+  "version": "0.3.2",
+  "author": "Patrik Forsberg <patrik.forsberg@coldmind.com>",
+  "description": "",
+  "dependencies": {
+    "chalk": "^2.4.1"
+  }
+}
