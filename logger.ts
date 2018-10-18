@@ -31,6 +31,28 @@ export class Logger {
 		}
 	}
 
+	private static makeLine(count: number, char: string = "-"): string {
+		let line = "";
+		for (let i = 0; i < count; i++) {
+			line += char;
+		}
+		return line;
+	}
+
+	public static logObject(obj: any, title: string = null) {
+		if (title != null) {
+			Logger.logYellow("-- Obj: " + title);
+			Logger.logYellow(Logger.makeLine(title.length + 10));
+		}
+
+		for (let key in obj) {
+			if (obj.hasOwnProperty(key) ) {
+				Logger.logYellow(key, obj[key]);
+			}
+		}
+	}
+
+
 	/**
 	 * Standard Debug Log
 	 *
