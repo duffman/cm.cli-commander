@@ -8,7 +8,7 @@ import {CliGlobal} from "./cli.global";
 
 let chalk = require("chalk");
 const log = console.log;
-import { Global } from "../global";
+import { Global } from "./global";
 
 export enum GLogDebugLevel {
 	Normal,
