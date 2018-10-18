@@ -8,7 +8,7 @@ import {CliGlobal} from "./cli.global";
 
 let chalk = require("chalk");
 const log = console.log;
-import { Global } from "./global";
+import { CliGlobal } from "./cli.global";
 
 export enum GLogDebugLevel {
 	Normal,
@@ -61,25 +61,25 @@ export class Logger {
 	 * @param logData - Optional config such as config structures
 	 */
 	public static logDebug(caller: any, logMessage: string, logData: any = "") {
-		if (Global.DebugMode) {
+		if (CliGlobal.DebugMode) {
 			//log(chalk.cyan("#DEBUG :: " + caller.constructor.name + " :: " + logMessage), logData);
 		}
 	}
 
 	public static logStd(logMessage: string, logData: any = "") {
-		if (Global.DebugMode) {
-			//log(chalk.cyan("#DEBUG :: " + caller.constructor.name + " :: " + logMessage), logData);
+		if (CliGlobal.DebugMode) {
+			log(chalk.cyan("#DEBUG :: " + caller.constructor.name + " :: " + logMessage), logData);
 		}
 	}
 
 	public static logAppError(caller: any, logMessage: string, logData: any = "") {
-		if (Global.DebugMode) {
+		if (CliGlobal.DebugMode) {
 			log(chalk.red("#ERROR :: " + caller.constructor.name + " :: " + logMessage), logData);
 		}
 	}
 
 	public static logCoreInfo(caller: any, logMessage: string, logData: any = "") {
-		if (Global.DebugMode) {
+		if (CliGlobal.DebugMode) {
 			log(chalk.cyan("#DEBUG :: " + caller.constructor.name + " :: " + logMessage), logData);
 		}
 	}

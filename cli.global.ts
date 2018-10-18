@@ -1,5 +1,6 @@
 
 export module CliGlobal {
+	export let DebugMode = false;
 	export enum DebugReportingLevel {
 		None,
 		Low,
