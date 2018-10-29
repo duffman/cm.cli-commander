@@ -2,9 +2,7 @@
  * Copyright (C) Patrik Forsberg <patrik.forsberg@coldmind.com> - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
- * September 2018
  */
-import {CliGlobal} from "./cli.global";
 
 let chalk = require("chalk");
 const log = console.log;
@@ -66,7 +64,7 @@ export class Logger {
 		}
 	}
 
-	public static logStd(logMessage: string, logData: any = "") {
+	public static logStd(caller: any, logMessage: string, logData: any = "") {
 		if (CliGlobal.DebugMode) {
 			log(chalk.cyan("#DEBUG :: " + caller.constructor.name + " :: " + logMessage), logData);
 		}
