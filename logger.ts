@@ -2,7 +2,6 @@
  * Copyright (C) Patrik Forsberg <patrik.forsberg@coldmind.com> - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
- * September 2018
  */
 
 let chalk = require("chalk");
@@ -65,7 +64,7 @@ export class Logger {
 		}
 	}
 
-	public static logStd(logMessage: string, logData: any = "") {
+	public static logStd(caller: any, logMessage: string, logData: any = "") {
 		if (CliGlobal.DebugMode) {
 			log(chalk.cyan("#DEBUG :: " + logMessage), logData);
 		}
