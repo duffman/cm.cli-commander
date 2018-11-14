@@ -4,7 +4,6 @@
  * Proprietary and confidential
  * September 2018
  */
-import {CliGlobal} from "./cli.global";
 
 let chalk = require("chalk");
 const log = console.log;
@@ -68,7 +67,7 @@ export class Logger {
 
 	public static logStd(logMessage: string, logData: any = "") {
 		if (CliGlobal.DebugMode) {
-			log(chalk.cyan("#DEBUG :: " + caller.constructor.name + " :: " + logMessage), logData);
+			log(chalk.cyan("#DEBUG :: " + logMessage), logData);
 		}
 	}
 
@@ -181,14 +180,21 @@ export class Logger {
 
 
 	public static logGreen(logMessage: string, logData: any = null) {
-		let logStr = Logger.prepStr(logMessage, logData);
-		log(chalk.greenBright(logStr));
+		//let logStr = Logger.prepStr(logMessage, logData);
+		//log(chalk.greenBright(logStr));
+
+		log(chalk.greenBright(logMessage), chalk.greenBright(logData));
+
 	}
 
 	public static logRed(logMessage: string, logData: any = null) {
 		//console.log("logRed", "'" + logMessage + "'");
-		let logStr = Logger.prepStr(logMessage, logData);
-		log(chalk.redBright(logStr));
+
+		//let logStr = Logger.prepStr(logMessage, logData);
+		//log(chalk.redBright(logStr));
+
+		log(chalk.redBright(logMessage), chalk.redBright(logData));
+
 	}
 
 	public static logYellow(logMessage: string, logData: any = "") {
