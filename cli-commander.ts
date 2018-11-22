@@ -1,10 +1,27 @@
-// #! /usr/bin/env node
+#! /usr/bin/env node
 
 const args = process.argv.slice(2);
 
-function getFirst() {
-	return args.length > 0 ? args[0] : null;
+export class CliCommander {
+	public static haveArgs(): boolean {
+		return args.length > 0;
+	}
+
+	public static first(): string {
+		return args.length > 0 ? args[0] : null;
+	}
+
+	public static debug(): boolean {
+		return this.first() === "debug";
+	}
+
+	public static parseCliArgs(args: any): void {
+
+	}
 }
+
+CliCommander.parseCliArgs(args);
+
 /*
 
 SELECT

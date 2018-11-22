@@ -56,7 +56,7 @@ export class Logger {
 	 *
 	 * @param caller - object, used to get class name
 	 * @param logMessage - The message to print
-	 * @param logData - Optional config such as config structures
+	 * @param logData - Optional configureWebServer such as configureWebServer structures
 	 */
 	public static logDebug(caller: any, logMessage: string, logData: any = "") {
 		if (CliGlobal.DebugMode) {
@@ -182,8 +182,11 @@ export class Logger {
 		//let logStr = Logger.prepStr(logMessage, logData);
 		//log(chalk.greenBright(logStr));
 
-		log(chalk.greenBright(logMessage), chalk.greenBright(logData));
-
+		if (logData) {
+			log(chalk.greenBright(logMessage), chalk.greenBright(logData));
+		} else {
+			log(chalk.greenBright(logMessage));
+		}
 	}
 
 	public static logRed(logMessage: string, logData: any = null) {
