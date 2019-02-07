@@ -3,8 +3,9 @@
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
-import {Logger} from '@cli/cli.logger';
-import * as fs from 'fs';
+
+import { Logger }                 from "./cli.logger";
+import * as fs                    from 'fs';
 
 export interface IConfigFile {
 	port: number;
