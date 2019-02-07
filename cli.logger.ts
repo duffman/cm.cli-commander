@@ -54,13 +54,30 @@ export class Logger {
 	/**
 	 * Standard Debug Log
 	 *
-	 * @param caller - object, used to get class name
+	 * @param caller - object, used to getAs class name
 	 * @param logMessage - The message to print
 	 * @param logData - Optional configureWebServer such as configureWebServer structures
 	 */
-	public static logDebug(caller: any, logMessage: string, logData: any = "") {
+	public static logDebugCaller(caller: any, logMessage: string, logData: any = "") {
 		if (CliGlobal.DebugMode) {
-			//log(chalk.cyan("#DEBUG :: " + caller.constructor.name + " :: " + logMessage), logData);
+			log(chalk.cyan("#DEBUG :: " + caller.constructor.name + " :: " + logMessage), logData);
+		}
+	}
+
+	public static logDebug(logMessage: string, logData: any = "") {
+		if (CliGlobal.DebugMode) {
+			log(chalk.cyan("#DEBUG :: " + logMessage), logData);
+		}
+	}
+
+	public static logDebugErr(logMessage: string, data: any = null) {
+		if (!CliGlobal.DebugMode) return;
+		data = data !== null ? JSON.stringify(data) : null;
+
+		if (data === null) {
+			log(chalk.red("#ERR :: " + logMessage));
+		} else {
+			log(chalk.red("#ERR :: " + logMessage + " :: " + data));
 		}
 	}
 
@@ -130,8 +147,9 @@ export class Logger {
 		log(chalk.bold.red(begin) + " " + chalk.bold.white.bgRed(strongWord) + " " + chalk.bold.red(begin));
 	}
 
-	public static logUndefinedError(prefix: string, name: string): void {
-		Logger.logErrorWithStrongWord(prefix + " :: ", name, " :: is Undefined");
+	public static logOut(logMessage: string, logData: any = null) {
+		logData = logData == null ? "" : logData;
+		log(this.error(logMessage), logData);
 	}
 
 	public static logError(logMessage: string, logData: any = null) {
